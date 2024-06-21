@@ -1,0 +1,184 @@
+body {
+    font-family: 'Montserrat', 'Roboto Slab', sans-serif;
+  }
+  
+  .navbar .nav-item .avatar-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar .nav-item .avatar-placeholder:hover {
+    background-color: #5a6268;
+  }
+  
+  .page-section {
+    padding: 80px 0;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .card-body i {
+    color: #007bff;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .btn-xl {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  body {
+    font-family: 'Montserrat', 'Roboto Slab', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+  }
+
+  .navbar {
+    background-color: #343a40;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-brand {
+    font-size: 1.75rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .navbar-brand:hover {
+    color: #007bff;
+  }
+
+  .navbar-nav .nav-link {
+    color: #ffffff;
+    margin-right: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #007bff;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  .user-info i {
+    color: #007bff;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+
+  .user-info span {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-right: 20px;
+  }
+
+  .btn-logout {
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .btn-logout:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 20px;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-body {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .card-body i {
+    color: #007bff;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #343a40;
+  }
+
+  .btn-xl {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .btn-xl:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  .footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 768px) {
+    .cargo-card {
+      max-width: 350px;
+    }
+  }

@@ -1,0 +1,70 @@
+<!-- Sidebar -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Admin Dashboard</h3>
+  </div>
+  <ul class="list-unstyled components">
+    <li><a href="#" routerLink="/admin-portal">Dashboard</a></li>
+    <li><a href="#" routerLink="/ordersPortal">Orders</a></li>
+    <li><a href="#" routerLink="/cargoPortal">Track Cargo</a></li>
+    <li><a href="#" routerLink="/adminWareHouse">Warehouse</a></li>
+    <li class="active"><a href="#" routerLink="/adminGatePassPortal">Gate Pass</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<div id="content">
+  <div class="container mt-4">
+    <h1>Admin Gate Passes</h1>
+
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let gatePass of gatePasses">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Gate Pass ID: {{ gatePass.gatePassId }}</h5>
+            <p class="card-text"><strong>Dispatch Date:</strong> {{ gatePass.dispatchDate | date }}</p>
+            <p class="card-text"><strong>Order ID:</strong> {{ gatePass.orderId }}</p>
+            <p class="card-text"><strong>Created By:</strong> {{ gatePass.createdBy }}</p>
+            <button class="btn btn-danger btn-sm float-right" (click)="deleteGatePass(gatePass.gatePassId)">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-primary btn-sm float-right mr-2" (click)="editGatePass(gatePass)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selectedGatePass" class="modal show" style="display: block;" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Gate Pass</h5>
+            <button type="button" class="close" (click)="selectedGatePass = null">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="updateGatePass()">
+              <div class="form-group">
+                <label for="orderId">Order ID</label>
+                <input type="number" id="orderId" [(ngModel)]="selectedGatePass.orderId" name="orderId" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="dispatchDate">Dispatch Date</label>
+                <input type="date" id="dispatchDate" [(ngModel)]="selectedGatePass.dispatchDate" name="dispatchDate" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="createdBy">Created By</label>
+                <input type="number" id="createdBy" [(ngModel)]="selectedGatePass.createdBy" name="createdBy" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-secondary" (click)="selectedGatePass = null">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

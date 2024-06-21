@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Admin Dashboard</h3>
+    </div>
+    <ul class="list-unstyled components">
+      <li><a href="#" routerLink="/admin-portal">Dashboard</a></li>
+      <li class="active"><a href="#" routerLink="/ordersPortal">Orders</a></li>
+      <li><a href="#" routerLink="/cargoPortal">Track Cargo</a></li>
+      <li><a href="#">Customers</a></li>
+      <li><a href="#" routerLink="/adminWareHouse">WareHouse</a></li>
+      <li><a href="#" routerLink="/adminGatePassPortal">Gate Pass</a></li>
+    </ul>
+  </nav>
+
+  <div id="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="mb-4 display-4">Order Management</h2>
+          <hr class="my-4">
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <ng-container *ngFor="let order of orders">
+          <div class="col mb-4">
+            <div class="card h-100 w-60">
+              <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">{{ order.cargoName }}</h5>
+              </div>
+              <div class="card-body">
+                <p class="card-text">Order ID: {{ order.orderId }}</p>
+                <p class="card-text">User ID: {{ order.userId }}</p>
+                <p class="card-text">Quantity: {{ order.quantity }}</p>
+                <p class="card-text">From Warehouse ID: {{ order.fromWarehouseId }}</p>
+                <p class="card-text">To Warehouse ID: {{ order.toWarehouseId }}</p>
+                <p class="card-text">Order Date: {{ order.orderDate | date }}</p>
+                <p class="card-text">Is Outgoing: {{ order.isOutgoing ? 'Yes' : 'No' }}</p>
+                <p class="card-text">Status: {{ order.status }}</p>
+                <button class="btn btn-primary btn-sm" (click)="editOrder(order)">
+                  <i class="fa fa-pencil-alt" aria-hidden="true"></i> Edit
+                </button>
+                <button class="btn btn-danger btn-sm ml-2" (click)="deleteOrder(order.orderId)">
+                  <i class="fa fa-trash-alt" aria-hidden="true"></i> Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div *ngIf="selectedOrder" class="card mt-3">
+        <div class="card-body">
+          <h5 class="card-title">Edit Order</h5>
+          <form (ngSubmit)="saveOrder()">
+            <div class="form-group">
+              <label for="cargoName">Cargo Name</label>
+              <input type="text" id="cargoName" name="cargoName" class="form-control"
+                     [(ngModel)]="selectedOrder.cargoName" required>
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input type="number" id="quantity" name="quantity" class="form-control"
+                     [(ngModel)]="selectedOrder.quantity" required>
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <input type="text" id="status" name="status" class="form-control"
+                     [(ngModel)]="selectedOrder.status" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary ml-2" (click)="cancelEdit()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

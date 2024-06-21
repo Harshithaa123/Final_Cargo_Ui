@@ -1,0 +1,133 @@
+body,
+    html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 900px;
+      max-width: 1200px;
+      margin: 40px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-image {
+      flex: 1;
+      background-image: url('../../assets/photos/signuppage1.jpg');
+      background-size: cover;
+      background-position: center;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-form {
+      flex: 1;
+      padding: 40px;
+      background: #ffffff;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-outline {
+      margin-bottom: 20px;
+    }
+
+    .form-outline input,
+    .form-outline select {
+      border-radius: 25px;
+      padding: 12px 20px;
+      width: 100%;
+    }
+
+    .form-outline label {
+      margin-bottom: 10px;
+    }
+
+    .form-outline .text-danger {
+      font-size: 0.9em;
+      color: red;
+    }
+
+    .btn-primary {
+      background-color: #2575fc;
+      border-color: #2575fc;
+      border-radius: 25px;
+      padding: 12px 20px;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background-color: #1a64e3;
+      border-color: #1a64e3;
+    }
+
+    .social-buttons .btn {
+      border-radius: 25px;
+      margin: 5px;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+
+    .btn-facebook {
+      background-color: #3b5998;
+      color: white;
+    }
+
+    .btn-facebook:hover {
+      background-color: #2d4373;
+    }
+
+    .btn-google {
+      background-color: #db4a39;
+      color: white;
+    }
+
+    .btn-google:hover {
+      background-color: #a94436;
+    }
+
+    .btn-twitter {
+      background-color: #1da1f2;
+      color: white;
+    }
+
+    .btn-twitter:hover {
+      background-color: #0a94da;
+    }
+
+    .btn-github {
+      background-color: #333;
+      color: white;
+    }
+
+    .btn-github:hover {
+      background-color: #24292f;
+    }
+
+    .toggle-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #007bff;
+      cursor: pointer;
+    }
+
+    .toggle-link:hover {
+      text-decoration: underline;
+    }

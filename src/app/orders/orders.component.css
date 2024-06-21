@@ -1,0 +1,107 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+  overflow-x: hidden; 
+  display: flex;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  background: #343a40; 
+  color: #fff;
+  transition: all 0.3s;
+  z-index: 1000;
+  padding-top: 1rem;
+}
+
+#sidebar .sidebar-header {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+#sidebar ul.components {
+  padding: 20px 0; 
+}
+
+#sidebar ul.components li {
+  margin-bottom: 10px;
+}
+
+#sidebar ul.components li a {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar ul.components li a:hover {
+  background-color: #495057;
+  text-decoration: none;
+}
+
+#sidebar ul.components li.active > a {
+  background-color: #007bff;
+}
+
+#sidebar ul.components li.active > a:hover {
+  background-color: #0056b3; 
+}
+
+#content {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px);
+}
+
+.container-fluid {
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header, .card-footer {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-header h5 {
+  font-size: 1.25rem;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    min-width: 100%;
+    max-width: 100%;
+    position: relative;
+    height: auto;
+  }
+
+  #content {
+    margin-left: 0;
+    width: 100%;
+  }
+}

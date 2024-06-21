@@ -1,0 +1,44 @@
+<!-- src/app/report/report.component.html -->
+<nav id="sidebar" >
+    <div class="sidebar-header">
+      <h3>Admin Dashboard</h3>
+    </div>
+  
+    <ul class="list-unstyled components">
+      <li>
+        <a>Dashboard</a>
+      </li>
+      <li>
+        <a href="#" routerLink="/ordersPortal">Orders</a>
+      </li>
+      <li>
+        <a href="#" routerLink="/cargoPortal">Track Cargo</a>
+      </li>
+      <li>
+        <a href="#" routerLink="/adminCustomerPortal">Customers</a>
+      </li>
+      <li>
+        <a href="#" routerLink="/adminWareHouse">WareHouse</a>
+      </li>
+      <li class="active">
+        <a href="#" routerLink="/reportDownload">Report</a>
+      </li>
+      <li>
+        <a href="#" routerLink="/adminGatePassPortal">Gate Pass</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <div class="report-container card mt-3">
+      <div class="card-body">
+        <h2 class="card-title">Reports</h2>
+        <div class="report-actions text-center">
+          <button class="btn btn-primary" (click)="downloadReport()">
+            <i class="fas fa-download"></i> Download Report
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,251 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* Navigation */
+.navbar {
+  padding: 0.75rem 1rem;
+  background-color: #343a40; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.navbar-brand:hover {
+  color: #ffc107; 
+}
+
+.navbar-nav .nav-link {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffc107; 
+}
+
+
+.masthead {
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff; 
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 0%), url('../../assets/photos/cargoimage-transformed.jpeg');
+  background-size: cover;
+  background-position: center center; 
+  background-repeat: no-repeat;
+  position: relative; 
+  text-align: center;
+}
+
+.masthead-subheading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.masthead-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background-color: #ffc107; 
+  border-color: #ffc107; 
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e0a800; 
+  border-color: #e0a800; 
+}
+
+/* Services Section */
+.page-section {
+  padding: 4rem 0;
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  color: #333; /* Dark text color */
+}
+
+.section-subheading {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  color: #333; /* Dark text color */
+}
+
+.service-item {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-item h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #888;
+}
+
+.fa-stack-2x {
+  font-size: 3rem;
+}
+
+.fa-stack-1x {
+  font-size: 2rem;
+}
+
+.fa-inverse {
+  color: #ffc107; 
+}
+
+
+.timeline {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #fff; 
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-entry {
+  width: calc(50% - 20px); 
+  margin-bottom: 40px; 
+}
+
+.timeline-entry.timeline-inverted {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.timeline-panel {
+  position: relative;
+  border: 1px solid #e9ecef; 
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+}
+
+.timeline-heading {
+  margin-bottom: 15px;
+}
+
+.timeline-heading h4 {
+  font-size: 20px; 
+  color: #333; 
+  margin-top: 0;
+}
+
+.timeline-body {
+  margin-bottom: 20px;
+}
+
+.timeline-body p {
+  font-size: 16px; 
+  color: #666;
+}
+
+/* Footer Styles */
+#main-footer {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.social-links {
+  list-style:none;
+  margin:0;
+  padding:0;
+  margin-bottom:30px;
+}
+
+.social-links li{
+  display:inline-block;
+  margin:0 5px;
+  border-radius:3px;
+  box-shadow:0 4px 0 transparent;
+  -webkit-transition:all .3s ease-out;
+  transition:all .3s ease-out;
+}
+
+.social-links li a {
+  display:block;
+  color:#fff;
+  font-size:21px;
+  width:50px;
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  background:#509B9E;
+  border-radius:50%;
+  -webkit-transition:all .3s ease-out;
+  transition:all .3s ease-out;
+}
+
+.social-links li a:hover {
+  color:#fff;
+  background:rgb(2, 2, 2);
+}
+.circle-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.circle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.update-item {
+  padding: 30px;
+  margin-bottom: 30px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.update-item h4 {
+  margin-bottom: 15px;
+  font-weight: bold;
+}

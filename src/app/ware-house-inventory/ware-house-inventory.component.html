@@ -1,0 +1,71 @@
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Warehouse Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/warehouse-inventoty" href="#">Inventory</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h2>Warehouse Inventory Management</h2>
+    <div class="container">
+        <div class="card mb-3">
+          <div class="card-header">Add New Inventory Item</div>
+          <div class="card-body">
+            <form (ngSubmit)="createWarehouseInventory()">
+              <div class="mb-3">
+                <label for="warehouseId" class="form-label">Warehouse ID</label>
+                <input type="number" class="form-control" id="warehouseId" [(ngModel)]="newItem.warehouseId" name="warehouseId" required>
+              </div>
+              <div class="mb-3">
+                <label for="cargoId" class="form-label">Cargo ID</label>
+                <input type="number" class="form-control" id="cargoId" [(ngModel)]="newItem.cargoId" name="cargoId" required>
+              </div>
+              <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="quantity" [(ngModel)]="newItem.quantity" name="quantity" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Item</button>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Inventory List</div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Warehouse ID</th>
+                  <th>Cargo ID</th>
+                  <th>Quantity</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of warehouseInventoryItems">
+                  <td>{{ item.warehouseId }}</td>
+                  <td>{{ item.cargoId }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>
+                    
+                    <button class="btn btn-danger btn-sm" (click)="deleteWarehouseInventory(item.warehouseId, item.cargoId)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      

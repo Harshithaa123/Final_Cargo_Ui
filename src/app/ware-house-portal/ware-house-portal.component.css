@@ -1,0 +1,73 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .dashboard-container {
+    display: flex;
+  }
+
+  .sidebar {
+    min-width: 250px;
+    background-color: #343a40;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+  }
+
+  .sidebar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    border-radius: 4px;
+  }
+
+  .sidebar a:hover {
+    background-color: #495057;
+  }
+
+  .sidebar a.active {
+    background-color: #007bff;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+  }
+
+  .dashboard-header {
+    margin-bottom: 20px;
+  }
+
+  .dashboard-section {
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .form-outline {
+    margin-bottom: 10px;
+  }
+
+  .result, .error-message {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .result {
+    color: green;
+  }
+
+  .error-message {
+    color: red;
+  }

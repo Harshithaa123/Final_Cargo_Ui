@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" integrity="sha512-pjpd+1W0zNfa9D8h3OMtAfIbKx1y9W5l49XOWkG3g2FV1S3Lw9Y0M7d33Y0bnGDPa3gYAL1jD0Nn8DMOnCQsAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+  <div class="container-fluid">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Admin Dashboard</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li class="active">
+          <a>Dashboard</a>
+        </li>
+        <li>
+          <a href="#" routerLink="/ordersPortal">Orders</a>
+        </li>
+        <li>
+          <a href="#" routerLink="/cargoPortal">Track Cargo</a>
+        </li>
+        <li>
+          <a href="#" routerLink="/adminCustomerPortal">Customers</a>
+        </li>
+        <li>
+          <a href="#" routerLink="/adminWareHouse">WareHouse</a>
+        </li>
+        <li>
+          <a href="#" routerLink="/reportDownload">Report</a>
+        </li>
+        <li>
+          <a href="#" routerLink="/adminGatePassPortal">Gate Pass</a>
+        </li>
+      </ul>
+    </nav>
+ 
+    <div id="content">
+      <div class="container-fluid mt-2 ml-8">      
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div id="overview" class="card bg-primary text-white mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Total Orders</h5>
+                <p class="card-text">{{ totalOrders }}</p>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between">
+                <a href="#" class="btn stretched-link" routerLink="/ordersPortal">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div id="analytics" class="card bg-warning text-white mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Pending Orders</h5>
+                <p class="card-text">{{ pendingOrders }}</p>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between">
+                <a href="#" class="btn stretched-link" routerLink="/ordersPortal">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div id="reports" class="card bg-success text-white mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Completed Orders</h5>
+                <p class="card-text">{{ completedOrders }}</p>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between">
+                <a href="#" class="btn stretched-link" routerLink="/ordersPortal">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div id="trackShipment" class="card bg-danger text-white mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Cancelled Orders</h5>
+                <p class="card-text">{{ cancelledOrders }}</p>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between">
+                <a href="#" class="btn stretched-link" routerLink="/ordersPortal">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- admin-portal.component.html -->
+<div class="container">
+  <div class="row my-4">
+    <div class="col">
+      <h2>Cargo Status Overview</h2>
+      <canvas #barChart></canvas>
+    </div>
+  </div>
+  <div class="row my-4">
+    <div class="col">
+      <h2>Orders by Date</h2>
+      <canvas #lineChart></canvas>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-MtY8yj0Cknp06JgMXFVjZTE4dh73L4xn6DtcEpPnf3bmYYdzc5+qk2mPV8u7+spV" crossorigin="anonymous"></script>
+
+</body>
+</html>

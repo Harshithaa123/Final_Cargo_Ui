@@ -1,0 +1,190 @@
+<!-- Sidebar -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Admin Dashboard</h3>
+  </div>
+
+  <ul class="list-unstyled components">
+    <li >
+      <a href="#" routerLink="/admin-portal">Dashboard</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/ordersPortal">Orders</a>
+    </li>
+    <li class="active">
+      <a href="#" routerLink="/cargoPortal">Track Cargo</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/adminCustomerPortal">Customers</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/adminWareHouse">WareHouse</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/adminGatePassPortal">Gate Pass</a>
+    </li>
+  </ul>
+</nav>
+<!-- End Sidebar -->
+
+
+<div class="container mt-4">
+  <h2 class="mb-4">ORDER MANAGEMENT</h2>
+  
+  <!-- Navigation Cards -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Create New Cargo
+        </div>
+        <div class="card-body text-center">
+          <button class="btn btn-success" (click)="showAddCargoForm()">Add Cargo</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Shift Cargo
+        </div>
+        <div class="card-body text-center">
+          <button class="btn btn-info" (click)="showShiftCargoForm()">Shift Cargo</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Track Cargo
+        </div>
+        <div class="card-body text-center">
+          <button class="btn btn-warning" (click)="showTrackCargoForm()">Track Cargo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cargo Creation Form -->
+  <div class="card mb-4" *ngIf="showAddForm && !isUpdating">
+    <div class="card-header">
+      Create New Cargo
+    </div>
+    <div class="card-body">
+      <form (submit)="addCargo()">
+        <!-- Form Fields -->
+        <div class="form-group">
+          <label for="cargoName">Cargo Name:</label>
+          <input type="text" class="form-control" id="cargoName" [(ngModel)]="newCargo.cargoName" name="cargoName" required>
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight:</label>
+          <input type="number" class="form-control" id="weight" [(ngModel)]="newCargo.weight" name="weight" required>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="damaged" [(ngModel)]="newCargo.damaged" name="damaged">
+          <label class="form-check-label" for="damaged">Damaged</label>
+        </div>
+        <div class="form-group">
+          <label for="dateStored">Date Stored:</label>
+          <input type="date" class="form-control" id="dateStored" [(ngModel)]="newCargo.dateStored" name="dateStored" required>
+        </div>
+        <div class="form-group">
+          <label for="warehouseId">Warehouse ID:</label>
+          <input type="number" class="form-control" id="warehouseId" [(ngModel)]="newCargo.warehouseId" name="warehouseId" required>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Add</button>
+        <button type="button" class="btn btn-secondary" (click)="toggleAddForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Shift Cargo Form -->
+  <div class="card mb-4" *ngIf="showShiftForm">
+    <div class="card-header">
+      Shift Cargo
+    </div>
+    <div class="card-body">
+      <form (submit)="shiftCargo()">
+        <div class="form-group">
+          <label for="cargoId">Cargo ID:</label>
+          <input type="number" class="form-control" id="cargoId" [(ngModel)]="shiftCargoData.cargoId" name="cargoId" required>
+        </div>
+        <div class="form-group">
+          <label for="fromWarehouseId">From Warehouse ID:</label>
+          <input type="number" class="form-control" id="fromWarehouseId" [(ngModel)]="shiftCargoData.fromWarehouseId" name="fromWarehouseId" required>
+        </div>
+        <div class="form-group">
+          <label for="toWarehouseId">To Warehouse ID:</label>
+          <input type="number" class="form-control" id="toWarehouseId" [(ngModel)]="shiftCargoData.toWarehouseId" name="toWarehouseId" required>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Shift</button>
+        <button type="button" class="btn btn-secondary" (click)="toggleShiftForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Track Cargo Form -->
+  <div class="card mb-4" *ngIf="showTrackForm">
+    <div class="card-header">
+      Track Cargo
+    </div>
+    <div class="card-body">
+      <form (submit)="trackCargo()">
+        <div class="form-group">
+          <label for="trackCargoId">Cargo ID:</label>
+          <input type="number" class="form-control" id="trackCargoId" [(ngModel)]="trackCargoId" name="trackCargoId" required>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Track</button>
+        <button type="button" class="btn btn-secondary" (click)="toggleTrackForm()">Cancel</button>
+      </form>
+      <!-- Display Track Results -->
+      <div *ngIf="trackedCargo">
+        <h4 class="mt-4">Cargo Details</h4>
+        <p><strong>Cargo ID:</strong> {{ trackedCargo.cargoId }}</p>
+        <p><strong>Cargo Name:</strong> {{ trackedCargo.cargoName }}</p>
+        <p><strong>Warehouse ID:</strong> {{ trackedCargo.warehouse?.warehouseId }}</p>
+        <p><strong>Warehouse Name:</strong> {{ trackedCargo.warehouse?.warehouseName }}</p>
+        <p><strong>Location:</strong> {{ trackedCargo.warehouse?.location }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- List of Cargos -->
+  <div class="card">
+    <div class="card-header">
+      Cargos
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Cargo ID</th>
+              <th>Cargo Name</th>
+              <th>Weight</th>
+              <th>Damaged</th>
+              <th>Date Stored</th>
+              <th>Warehouse ID</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Cargo Table Rows -->
+            <tr *ngFor="let cargo of cargos">
+              <td>{{ cargo.cargoId }}</td>
+              <td>{{ cargo.cargoName }}</td>
+              <td>{{ cargo.weight }}</td>
+              <td>{{ cargo.damaged ? 'Yes' : 'No' }}</td>
+              <td>{{ cargo.dateStored | date }}</td>
+              <td>{{ cargo.warehouseId }}</td>
+              <td>
+                <button class="btn btn-sm btn-danger" (click)="deleteCargo(cargo.cargoId)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

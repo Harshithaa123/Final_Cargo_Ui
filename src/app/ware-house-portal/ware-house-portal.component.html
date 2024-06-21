@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warehouse Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Warehouse Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/warehouse-inventoty" href="#">Inventory</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a (click)="setActiveSection('check-weight')" [class.active]="activeSection === 'check-weight'">Check Cargo Weight</a>
+      <a (click)="setActiveSection('check-damage')" [class.active]="activeSection === 'check-damage'">Check Cargo Damage</a>
+      <a (click)="setActiveSection('reorder-cargo')" [class.active]="activeSection === 'reorder-cargo'">Reorder Cargo</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="dashboard-header">
+        <h2>Warehouse Dashboard</h2>
+      </div>
+
+      <div *ngIf="activeSection === 'check-weight'" class="dashboard-section">
+        <h3>Check Cargo Weight</h3>
+        <div class="form-outline">
+          <input type="number" class="form-control" [(ngModel)]="cargoIdWeight" placeholder="Enter Cargo ID" required>
+        </div>
+        <button class="btn btn-primary" (click)="checkWeight()">Check Weight</button>
+        <div class="result" *ngIf="weight !== null">Weight: {{ weight }} kg</div>
+      </div>
+
+      <div *ngIf="activeSection === 'check-damage'" class="dashboard-section">
+        <h3>Check Cargo Damage</h3>
+        <div class="form-outline">
+          <input type="number" class="form-control" [(ngModel)]="cargoIdDamage" placeholder="Enter Cargo ID" required>
+        </div>
+        <button class="btn btn-warning" (click)="checkDamage()">Check Damage</button>
+        <div class="result" *ngIf="isDamaged !== null">Damaged: {{ isDamaged ? 'Yes' : 'No' }}</div>
+      </div>
+
+      <div *ngIf="activeSection === 'reorder-cargo'" class="dashboard-section">
+        <h3>Reorder Cargo</h3>
+        <div class="form-outline">
+          <input type="number" class="form-control" [(ngModel)]="cargoId" placeholder="Enter Cargo ID" required>
+        </div>
+        <button class="btn btn-success" (click)="reorderCargo()">Reorder Cargo</button>
+        <div class="result" *ngIf="reorderMessage">{{ reorderMessage }}</div>
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

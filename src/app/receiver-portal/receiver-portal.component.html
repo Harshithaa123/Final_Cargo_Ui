@@ -1,0 +1,68 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Cargo Management</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span>Welcome {{userName}}</span>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-logout" (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h3>Receiver Orders</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="receiverForm" (ngSubmit)="onSubmit()">
+          
+          <div class="form-group mb-3">
+            <label for="userId">Receiver ID</label>
+            <input type="text" id="userId" formControlName="userId" class="form-control">
+          </div>        
+          <div class="form-group mb-3">
+            <button [disabled]="loading" type="submit" class="btn btn-primary btn-block">Fetch Orders</button>
+          </div>
+        </form>  
+        <div *ngIf="orders.length > 0">
+          <h4>Received Orders</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Cargo Name</th>
+                <th>Quantity</th>
+                <th>Order Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders">
+                <td>{{ order.orderId }}</td>
+                <td>{{ order.cargoName }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.orderDate | date: 'yyyy-MM-dd' }}</td>
+                <td>{{ order.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>   
+        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Cargo Management</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <span>Welcome {{ userName }}</span>
+        </div>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-logout" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3>Send Order</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="sendOrderForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="cargoName">Product Name</label>
+          <input type="text" id="cargoName" formControlName="cargoName" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['cargoName'].errors }">
+          <div *ngIf="submitted && f['cargoName'].errors" class="invalid-feedback">
+            <div *ngIf="f['cargoName'].errors['required']">Cargo Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" formControlName="quantity" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['quantity'].errors }">
+          <div *ngIf="submitted && f['quantity'].errors" class="invalid-feedback">
+            <div *ngIf="f['quantity'].errors['required']">Quantity is required</div>
+            <div *ngIf="f['quantity'].errors['min']">Quantity must be at least 1</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="fromWarehouseId">From Warehouse</label>
+          <select id="fromWarehouseId" formControlName="fromWarehouseId" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['fromWarehouseId'].errors }">
+            <option *ngFor="let warehouse of warehouses" [value]="warehouse.warehouseId">{{ warehouse.location }}</option>
+          </select>
+          <div *ngIf="submitted && f['fromWarehouseId'].errors" class="invalid-feedback">
+            <div *ngIf="f['fromWarehouseId'].errors['required']">From Warehouse is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="toWarehouseId">To Warehouse</label>
+          <select id="toWarehouseId" formControlName="toWarehouseId" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['toWarehouseId'].errors }">
+            <option *ngFor="let warehouse of warehouses" [value]="warehouse.warehouseId">{{ warehouse.location }}</option>
+          </select>
+          <div *ngIf="submitted && f['toWarehouseId'].errors" class="invalid-feedback">
+            <div *ngIf="f['toWarehouseId'].errors['required']">To Warehouse is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="senderId">Sender ID</label>
+          <input type="text" id="senderId" formControlName="senderId" class="form-control" [value]="senderId">
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="receiverId">Receiver ID</label>
+          <input type="text" id="receiverId" formControlName="receiverId" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['receiverId'].errors }">
+          <div *ngIf="submitted && f['receiverId'].errors" class="invalid-feedback">
+            <div *ngIf="f['receiverId'].errors['required']">Receiver ID is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <button [disabled]="loading" class="btn btn-primary btn-block">Send Order</button>
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+      </form>
+    </div>
+  </div>
+</div>

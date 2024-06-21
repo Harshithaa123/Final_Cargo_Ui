@@ -1,0 +1,85 @@
+<div id="sidebar">
+  <div class="sidebar-header">
+    <h3>Admin Dashboard</h3>
+  </div>
+  <ul class="list-unstyled components">
+    <li >
+      <a href="#" routerLink="/admin-portal">Dashboard</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/ordersPortal">Orders</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/cargoPortal">Track Cargo</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/adminCustomerPortal">Customers</a>
+    </li>
+    <li class="active">
+      <a href="#" routerLink="/adminWareHouse">Warehouse</a>
+    </li>
+    <li>
+      <a href="#" routerLink="/adminGatePassPortal">Gate Pass</a>
+    </li>
+  </ul>
+</div>
+
+<div id="content">
+  <div class="container">
+    <h1>Warehouse Management</h1>
+
+    <form [formGroup]="warehouseForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="warehouseId">Warehouse Id</label>
+        <input type="number" class="form-control" id="warehouseId" formControlName="warehouseId" required>
+      </div>
+      <div class="form-group">
+        <label for="warehouseName">Warehouse Name</label>
+        <input type="text" class="form-control" id="warehouseName" formControlName="warehouseName" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" class="form-control" id="location" formControlName="location" required>
+      </div>
+      <div class="form-group">
+        <label for="capacity">Capacity</label>
+        <input type="number" class="form-control" id="capacity" formControlName="capacity" required>
+      </div>
+      <div class="form-group">
+        <label for="mobileNum">Mobile Number</label>
+        <input type="text" class="form-control" id="mobileNum" formControlName="mobileNum" required>
+      </div>
+      <button type="submit" class="btn btn-primary">{{ editMode ? 'Update Warehouse' : 'Add Warehouse' }}</button>
+    </form>
+
+    <h2 class="mt-5">Warehouse List</h2>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>Mobile Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let warehouse of warehouses">
+            <td>{{ warehouse.warehouseId }}</td>
+            <td>{{ warehouse.warehouseName }}</td>
+            <td>{{ warehouse.location }}</td>
+            <td>{{ warehouse.capacity }}</td>
+            <td>{{ warehouse.mobileNum }}</td>
+            <td>
+              <button class="btn btn-sm btn-info" (click)="editWarehouse(warehouse)">Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="deleteWarehouse(warehouse.warehouseId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

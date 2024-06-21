@@ -1,0 +1,133 @@
+/* Sidebar */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    background: #343a40; /* Dark background color */
+    color: #fff;
+    z-index: 1000;
+    padding-top: 1rem;
+  }
+  
+  #sidebar .sidebar-header {
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+  }
+  
+  #sidebar ul.components {
+    padding: 20px 0; /* Adjust padding for better spacing */
+  }
+  
+  #sidebar ul.components li {
+    margin-bottom: 10px;
+  }
+  
+  #sidebar ul.components li a {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s;
+  }
+  
+  #sidebar ul.components li a:hover {
+    background-color: #495057;
+  }
+  
+  #sidebar ul.components li.active > a {
+    background-color: #007bff; /* Active link background color */
+  }
+  
+  #sidebar ul.components li.active > a:hover {
+    background-color: #0056b3; /* Hover effect for active link */
+  }
+  
+  /* Content */
+  #content {
+    margin-left: 250px; /* Adjust according to sidebar width */
+    padding: 20px;
+  }
+  
+  #content .container {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #content h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+  }
+  
+  #content h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  #content .form-group {
+    margin-bottom: 20px;
+  }
+  
+  #content .form-group label {
+    font-weight: bold;
+  }
+  
+  #content .form-control {
+    border-color: #ced4da; /* Default form control border color */
+  }
+  
+  #content .form-control:focus {
+    border-color: #007bff; /* Focus state form control border color */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus state box shadow */
+  }
+  
+  #content .btn-primary {
+    background-color: #007bff; /* Primary button background color */
+    border-color: #007bff; /* Primary button border color */
+  }
+  
+  #content .btn-primary:hover {
+    background-color: #0056b3; /* Primary button hover background color */
+    border-color: #0056b3; /* Primary button hover border color */
+  }
+  
+  #content .btn-danger {
+    background-color: #dc3545; /* Danger button background color */
+    border-color: #dc3545; /* Danger button border color */
+  }
+  
+  #content .btn-danger:hover {
+    background-color: #c82333; /* Danger button hover background color */
+    border-color: #bd2130; /* Danger button hover border color */
+  }
+  
+  #content .table {
+    margin-top: 20px;
+  }
+  
+  #content .table th,
+  #content .table td {
+    vertical-align: middle; /* Center content vertically in table cells */
+  }
+  
+  #content .table th {
+    background-color: #343a40; /* Dark background color for table headers */
+    color: #fff;
+  }
+  
+  #content .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05); /* Striped table row background color */
+  }
+  
+  #content .table-striped tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075); /* Hover effect for striped table rows */
+  }
+  
